@@ -30,7 +30,17 @@ public class Strings {
         //length
         System.out.println(sb.length());
 
+        StringBuilder sb2 = new StringBuilder("hello");
+        for(int i=0; i<sb2.length() / 2; i++) {
+            int front = i;
+            int back = sb2.length() - 1 - i;
 
+            char frontChar = sb2.charAt(front);
+            char backChar = sb2.charAt(back);
 
+            sb2.setCharAt(front, backChar);
+            sb2.setCharAt(back, frontChar);
+        }
+        System.out.println(sb2);
     }
 }
