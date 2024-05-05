@@ -1,46 +1,73 @@
+import java.util.Scanner;
 
 public class Strings {
 
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder("Zeeshan");
-        System.out.println(sb);
+//        Get the 3rd bit (position = 2) of a number n. (n = 0101)
+//        Bit Mask :
+//        Operation : AND
 
-        //char at index 0
-        System.out.println(sb.charAt(0));
+//       int n = 5; //0101
+//       int pos = 3;
+//       int bitMask = 1<<pos;
+//       if( (bitMask & n) == 0) {
+//           System.out.println("bit was 0");
+//       } else {
+//           System.out.println("bit was 1");
+//       }
 
-        //set char at index
-        sb.setCharAt(0, 'A');
-        System.out.println(sb);
+//        Set the 2nd bit (position = 1) of a number n. (n = 0101)
+//        Bit Mask : 1<<i
+//        Operation : OR
+//        int n = 5; //0101
+//        int pos = 1;
+//        int bitMask = 1<<pos;
+//        int newNumber = bitMask | n;
+//        System.out.println(newNumber);
 
-        //insert character at specific index and shift other characters
-        sb.insert(1, "hmed Z");
-        System.out.println(sb);
 
-        //delete specific part from string
-        sb.delete(0, 6);
-        System.out.println(sb);
 
-        //append other string
-        sb.append(" ");
-        sb.append("A");
-        sb.append("h");
-        sb.append("med");
-        System.out.println(sb);
+//        Clear Bit
+//        Clear the 3rd bit (position = 2) of a number n. (n = 0101)
+//        Bit Mask : 1<<i
+//        Operation : AND with NOT
+//        int n = 5;
+//        int pos = 2;
+//        int bitMask = 1<<pos;
+//        int notBitMask = ~ (bitMask);
+//
+//        int newNumber = notBitMask & n;
+//        System.out.println(newNumber);
 
-        //length
-        System.out.println(sb.length());
+//        Update Bit
+//        Update the 2nd bit (position = 1) of a number n to 1. (n = 0101)
+    //        For I
+    //        Bit Mask : 1<<i
+    //        Operation : AND
+    //        with NOT
+    //
+    //        For O
+    //        Bit Mask :
+    //        Operation : OR
 
-        StringBuilder sb2 = new StringBuilder("hello");
-        for(int i=0; i<sb2.length() / 2; i++) {
-            int front = i;
-            int back = sb2.length() - 1 - i;
 
-            char frontChar = sb2.charAt(front);
-            char backChar = sb2.charAt(back);
+        Scanner sc = new Scanner(System.in);
+        int oper = sc.nextInt();
+        //oper = 1 -> set;  oper = 0 -> clear
+        int n = 5; //0101
+        int pos = 2;
 
-            sb2.setCharAt(front, backChar);
-            sb2.setCharAt(back, frontChar);
+        int bitMask = 1<<pos;
+        if(oper == 1) {
+            //set
+            int newNumber = bitMask | n;
+            System.out.println(newNumber);
+        } else {
+            //clear
+            int newBitMask = ~(bitMask);
+            int newNumber = newBitMask & n;
+            System.out.println(newNumber);
         }
-        System.out.println(sb2);
+
     }
 }
