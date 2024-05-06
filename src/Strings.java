@@ -68,6 +68,5 @@ public class Strings {
             int newNumber = newBitMask & n;
             System.out.println(newNumber);
         }
-
     }
 }
