@@ -26,6 +26,19 @@ public class RecursionDemo {
         return fact_n;
     }
 
+    //Q: Print x^n (stack height = n)
+    public static int calcPower(int x, int n) {
+        if(n==0) {
+            return 1;
+        }
+        if(x == 0) {
+            return 0;
+        }
+        int xPownm1 = calcPower(x, n-1);
+        int xPown = x * xPownm1;
+        return xPown;
+    }
+
     public static void printSum(int i, int n, int sum) {
         if(i==n){
             sum +=i;
@@ -46,6 +59,20 @@ public class RecursionDemo {
        printFib(b, c, n-1);
     }
 
+    public static int calcPower2(int x, int n) {
+        if(n==0) {
+            return 1;
+        }
+        if(x==0) {
+            return 0;
+        }
+        if(n%2 == 0) {
+            return calcPower2(x,n/2) * calcPower2(x,n/2);
+        }
+        else {
+            return calcPower2(x, n/2) * calcPower2(x, n/2) * x;
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -59,10 +86,15 @@ public class RecursionDemo {
 //        int ans = calcFactorial(n);
 //        System.out.println(ans);
 
-        int a = 0, b = 1;
-        System.out.println(a);
-        System.out.println(b);
-        int n = 7;
-        printFib(a, b, n-2);
+//        int a = 0, b = 1;
+//        System.out.println(a);
+//        System.out.println(b);
+//        int n = 7;
+//        printFib(a, b, n-2);
+
+        int x = 2, n = 5;
+//        int ans = calcPower(x, n); //O(n)
+        int ans = calcPower2(x, n);
+        System.out.println(ans);
     }
 }
