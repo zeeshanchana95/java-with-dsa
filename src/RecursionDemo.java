@@ -93,8 +93,8 @@ public class RecursionDemo {
 //        printFib(a, b, n-2);
 
         int x = 2, n = 5;
-//        int ans = calcPower(x, n); //O(n)
-        int ans = calcPower2(x, n);
+        int ans = calcPower(x, n); //O(n)
+//        int ans = calcPower2(x, n);
         System.out.println(ans);
     }
 }
